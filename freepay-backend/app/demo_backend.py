@@ -75,7 +75,7 @@ async def health_check():
 
 @app.get("/customers/alice/balance")
 async def get_alice_balance():
-    """Get Alice's balance for demo"""
+    """Get Jaison's balance for demo"""
     return {
         "customer_id": DEMO_CUSTOMERS["alice"]["id"],
         "balances": {
@@ -124,9 +124,9 @@ async def process_payment(payment: PaymentRequest):
         # Simulate conversion (1:1 for demo)
         usd_amount = payment.amount
         
-        # Check Alice has sufficient balance
+        # Check Jaison has sufficient balance
         if DEMO_CUSTOMERS["alice"]["balance_usd"] < payment.amount:
-            raise HTTPException(status_code=400, detail=f"Insufficient funds: Alice has ${DEMO_CUSTOMERS['alice']['balance_usd']}, needs ${payment.amount}")
+            raise HTTPException(status_code=400, detail=f"Insufficient funds: Jaison has ${DEMO_CUSTOMERS['alice']['balance_usd']}, needs ${payment.amount}")
         
         # Process the transfer
         DEMO_CUSTOMERS["alice"]["balance_usd"] -= payment.amount
@@ -150,7 +150,7 @@ async def process_payment(payment: PaymentRequest):
             "id": tx_id,
             "type": "payment_received",
             "amount": payment.amount, 
-            "from": "Alice Johnson",
+            "from": "Jaison Jayaraj",
             "timestamp": timestamp,
             "settlement_status": "completed",
             "crypto_tx": payment.crypto_tx_hash,
@@ -161,7 +161,7 @@ async def process_payment(payment: PaymentRequest):
         DEMO_CUSTOMERS["bob"]["transactions"].append(bob_tx)
         
         logger.info(f"[DEMO] ✅ Payment successful: ${usd_amount} transferred to merchant")
-        logger.info(f"[DEMO] Alice balance: ${DEMO_CUSTOMERS['alice']['balance_usd']}")
+        logger.info(f"[DEMO] Jaison balance: ${DEMO_CUSTOMERS['alice']['balance_usd']}")
         logger.info(f"[DEMO] Bob balance: ${DEMO_CUSTOMERS['bob']['balance_usd']}")
         
         return PaymentResponse(

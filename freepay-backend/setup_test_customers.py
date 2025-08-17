@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Setup script to create test customers for FreePay demo
-Run this once to create Alice (payer) and Bob (merchant) customers
+Run this once to create Jaison (payer) and Bob (merchant) customers
 """
 
 import asyncio
@@ -18,17 +18,17 @@ async def setup_customers():
         
         print("[SETUP] Setting up FreePay demo customers...")
         
-        # Create Customer A (Alice - the payer)
-        print("\n[ALICE] Creating Alice (Customer/Payer)...")
+        # Create Customer A (Jaison - the payer)
+        print("\n[JAISON] Creating Jaison (Customer/Payer)...")
         alice_result = await fern.create_customer(
-            name="Alice Johnson",
-            email="alice.freepay.demo@example.com"
+            name="Jaison Jayaraj",
+            email="jaison.freepay.demo@example.com"
         )
         
         alice_id = None
         if alice_result:
             alice_id = alice_result.get("customerId") or alice_result.get("id") or alice_result.get("customer_id")
-            print(f"[SUCCESS] Alice created with ID: {alice_id}")
+            print(f"[SUCCESS] Jaison created with ID: {alice_id}")
         
         # Create Customer B (Bob - the merchant)
         print("\n[BOB] Creating Bob (Merchant/Receiver)...")

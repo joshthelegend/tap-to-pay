@@ -152,9 +152,9 @@ async def test_fern_integration():
     
     print("=== Testing Fern API Integration ===")
     
-    # Check Alice's status
+    # Check Jaison's status
     alice_status = await client.get_customer_status(alice_id)
-    print(f"Alice Status: {alice_status}")
+    print(f"Jaison Status: {alice_status}")
     
     # Check Bob's status
     bob_status = await client.get_customer_status(bob_id)
@@ -162,7 +162,7 @@ async def test_fern_integration():
     
     # Try to get wallets
     alice_wallets = await client.get_customer_wallets(alice_id)
-    print(f"Alice Wallets: {alice_wallets}")
+    print(f"Jaison Wallets: {alice_wallets}")
     
     # Test payment processing
     payment_result = await client.create_crypto_transfer(
