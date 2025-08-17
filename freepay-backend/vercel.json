@@ -1,22 +1,14 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "app/demo_backend.py",
-      "use": "@vercel/python"
+  "functions": {
+    "api/index.py": {
+      "runtime": "@vercel/python"
     }
-  ],
+  },
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "app/demo_backend.py"
+      "dest": "/api/index.py"
     }
-  ],
-  "env": {
-    "FERN_API_KEY": "@fern_api_key",
-    "FERN_BASE_URL": "@fern_base_url",
-    "ALCHEMY_API_KEY": "@alchemy_api_key",
-    "CUSTOMER_A_ID": "@customer_a_id",
-    "CUSTOMER_B_ID": "@customer_b_id"
-  }
+  ]
 }
