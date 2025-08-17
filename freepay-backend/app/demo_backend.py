@@ -33,8 +33,8 @@ app.add_middleware(
 DEMO_CUSTOMERS = {
     "alice": {
         "id": "3ed93e27-3a1d-4be7-b139-7ee34578c873",
-        "name": "Alice Johnson",
-        "email": "alice.freepay.demo@example.com",
+        "name": "Jaison Jayaraj",
+        "email": "jaison.freepay.demo@example.com",
         "balance_usd": 1000.00,
         "transactions": []
     },
