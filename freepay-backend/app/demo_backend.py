@@ -4,7 +4,7 @@ from pydantic import BaseModel
 import os
 import time
 import random
-from typing import Optional
+from typing import Optional, Dict, Any
 from dotenv import load_dotenv
 import logging
 
@@ -230,6 +230,86 @@ def get_chain_name(chain_id: int) -> str:
         11155111: "Ethereum Sepolia"
     }
     return chain_names.get(chain_id, f"Chain {chain_id}")
+
+@app.get("/integrations")
+async def get_integrations():
+    """Get available payment integrations"""
+    return {
+        "integrations": [
+            {
+                "name": "Fern API",
+                "status": "active",
+                "description": "Crypto-to-fiat instant settlement",
+                "features": ["KYC/AML", "Bank transfers", "Multi-currency"]
+            },
+            {
+                "name": "Coinbase Commerce",
+                "status": "ready",
+                "description": "Accept payments in multiple cryptocurrencies",
+                "features": ["BTC", "ETH", "USDC", "Instant conversion"]
+            },
+            {
+                "name": "Circle USDC",
+                "status": "ready",
+                "description": "Stablecoin infrastructure with programmable wallets",
+                "features": ["Multi-chain USDC", "Smart routing", "Low fees", "Instant settlement"]
+            },
+            {
+                "name": "Alchemy",
+                "status": "active",
+                "description": "Blockchain infrastructure and balance detection",
+                "features": ["Multi-chain support", "Real-time balances", "Transaction monitoring"]
+            }
+        ],
+        "optimal_flow": "Circle USDC on Base chain for lowest fees"
+    }
+
+@app.post("/process-payment-v2")
+async def process_payment_v2(payment: PaymentRequest):
+    """Enhanced payment processing with multiple provider options"""
+    try:
+        # Simulate smart routing
+        providers = []
+        
+        # Check Circle USDC availability
+        if payment.chain_id in [8453, 137, 10, 42161]:  # Base, Polygon, Optimism, Arbitrum
+            providers.append({
+                "provider": "Circle USDC",
+                "fee": 0.05,
+                "speed": "2 seconds",
+                "selected": True
+            })
+        
+        # Coinbase Commerce as fallback
+        providers.append({
+            "provider": "Coinbase Commerce",
+            "fee": 0.30,
+            "speed": "10 seconds",
+            "selected": False
+        })
+        
+        # Process through selected provider (Circle for demo)
+        selected = providers[0] if providers else {"provider": "Fern API"}
+        
+        # Update balances
+        usd_amount = float(payment.amount)
+        DEMO_CUSTOMERS["alice"]["balance_usd"] -= usd_amount
+        DEMO_CUSTOMERS["bob"]["balance_usd"] += usd_amount
+        
+        return {
+            "success": True,
+            "provider_used": selected["provider"],
+            "amount": usd_amount,
+            "fee": selected.get("fee", 0.01),
+            "settlement_time": selected.get("speed", "instant"),
+            "available_providers": providers,
+            "transaction_id": f"eazypay_tx_{int(time.time())}",
+            "message": f"Payment processed via {selected['provider']}"
+        }
+        
+    except Exception as e:
+        logger.error(f"Payment V2 error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
 
 if __name__ == "__main__":
     import uvicorn
