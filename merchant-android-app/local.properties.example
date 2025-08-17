@@ -1,0 +1,10 @@
+# FreePay Android Merchant Terminal Configuration
+# Copy this file to app/src/main/assets/local.properties and fill in your values
+
+# Alchemy API Key
+# Get your API key from https://www.alchemy.com/
+alchemy.api.key=YOUR_ALCHEMY_API_KEY_HERE
+
+# Merchant Wallet Address
+# The Ethereum address where payments will be sent
+merchant.address=0xYOUR_MERCHANT_WALLET_ADDRESS_HERE

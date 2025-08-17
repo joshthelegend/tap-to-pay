@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FreePay POS</string>
+    <string name="charge">Charge</string>
+    <string name="tap_to_pay">Tap to Pay</string>
+    <string name="processing_payment">Processing Payment…</string>
+    <string name="payment_successful">Payment Successful</string>
+    <string name="payment_failed">Payment Failed</string>
+    <string name="insufficient_funds">Insufficient Funds</string>
+    <string name="nfc_not_available">NFC not available</string>
+    <string name="enable_nfc">Please enable NFC</string>
+</resources>

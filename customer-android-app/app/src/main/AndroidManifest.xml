@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- ① Add this line -->
+    <uses-permission android:name="android.permission.NFC"/>
+    
+    <!-- Permissions for direct wallet communication -->
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <!-- ② (optional but recommended) declare HCE capability -->
+    <uses-feature android:name="android.hardware.nfc.hce"
+        android:required="true"/>
+
+    <!-- Package visibility queries for Android 11+ to detect wallet apps -->
+    <queries>
+        <!-- Query for apps that can handle ethereum: URIs -->
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="ethereum" />
+        </intent>
+        
+        <!-- Query for other wallet-related URI schemes -->
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="wc" />
+        </intent>
+        
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="wallet" />
+        </intent>
+        
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="web3" />
+        </intent>
+        
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="cbwallet" />
+        </intent>
+        
+        <!-- New wallet schemes -->
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="rabby" />
+        </intent>
+        
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="phantom" />
+        </intent>
+        
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="daimo" />
+        </intent>
+        
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="railway" />
+        </intent>
+        
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="payy" />
+        </intent>
+        
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="stables" />
+        </intent>
+        
+        <!-- Direct wallet address requests -->
+        <intent>
+            <action android:name="org.freepay.REQUEST_ADDRESS" />
+        </intent>
+        
+        <!-- Specific wallet packages -->
+        <package android:name="io.metamask" />
+        <package android:name="me.rainbow" />
+        <package android:name="org.toshi" />
+        <package android:name="com.coinbase.android" />
+        <package android:name="com.wallet.crypto.trustapp" />
+        <package android:name="im.token.app" />
+        <package android:name="co.myst.android" />
+        <package android:name="com.alphawallet.app" />
+        <package android:name="org.walleth" />
+        <package android:name="piuk.blockchain.android" />
+        <package android:name="com.exodus" />
+        <package android:name="com.myetherwallet.mewwallet" />
+        <package android:name="org.ethereum.mist" />
+        <package android:name="com.debank.rabbymobile" />
+        <package android:name="app.phantom" />
+        <package android:name="com.daimo" />
+        <package android:name="com.railway.rtp" />
+        <package android:name="com.polybaselabs.wallet" />
+        <package android:name="money.stables" />
+    </queries>
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.FreePayPOS"
+        tools:targetApi="31"
+        tools:replace="android:dataExtractionRules">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.FreePayPOS">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <service
+            android:name=".CardService"
+            android:exported="true"
+            android:permission="android.permission.BIND_NFC_SERVICE">
+            <intent-filter>
+                <action android:name="android.nfc.cardemulation.action.HOST_APDU_SERVICE"/>
+            </intent-filter>
+
+            <!-- THIS line wires the XML → if wrong, NFC ignores everything -->
+            <meta-data
+                android:name="android.nfc.cardemulation.host_apdu_service"
+                android:resource="@xml/nfc_apduservice"/>
+        </service>
+    </application>
+
+</manifest>

@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:keepScreenOn="true"
+    tools:context=".MainActivity">
+
+    <!-- Amount Display Area -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/displayArea"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/display_background"
+        android:padding="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.25">
+
+        <TextView
+            android:id="@+id/amountDisplay"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="$0.00"
+            android:textSize="56sp"
+            android:textColor="@color/text_primary"
+            android:textStyle="bold"
+            android:gravity="end|center_vertical"
+            android:maxLines="1"
+            android:ellipsize="start"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Calculator Buttons -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/buttonArea"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="8dp"
+        android:layout_marginBottom="100dp"
+        app:layout_constraintTop_toBottomOf="@id/displayArea"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Row 1 -->
+        <Button
+            android:id="@+id/btn1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="1"
+            android:textSize="24sp"
+            android:layout_margin="4dp"
+            style="@style/CalculatorButton"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/btn4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btn2"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintVertical_weight="1" />
+
+        <Button
+            android:id="@+id/btn2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="2"
+            android:textSize="24sp"
+            android:layout_margin="4dp"
+            style="@style/CalculatorButton"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/btn5"
+            app:layout_constraintStart_toEndOf="@id/btn1"
+            app:layout_constraintEnd_toStartOf="@id/btn3"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintVertical_weight="1" />
+
+        <Button
+            android:id="@+id/btn3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="3"
+            android:textSize="24sp"
+            android:layout_margin="4dp"
+            style="@style/CalculatorButton"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/btn6"
+            app:layout_constraintStart_toEndOf="@id/btn2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintVertical_weight="1" />
+
+        <!-- Row 2 -->
+        <Button
+            android:id="@+id/btn4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="4"
+            android:textSize="24sp"
+            android:layout_margin="4dp"
+            style="@style/CalculatorButton"
+            app:layout_constraintTop_toBottomOf="@id/btn1"
+            app:layout_constraintBottom_toTopOf="@id/btn7"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btn5"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintVertical_weight="1" />
+
+        <Button
+            android:id="@+id/btn5"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="5"
+            android:textSize="24sp"
+            android:layout_margin="4dp"
+            style="@style/CalculatorButton"
+            app:layout_constraintTop_toBottomOf="@id/btn2"
+            app:layout_constraintBottom_toTopOf="@id/btn8"
+            app:layout_constraintStart_toEndOf="@id/btn4"
+            app:layout_constraintEnd_toStartOf="@id/btn6"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintVertical_weight="1" />
+
+        <Button
+            android:id="@+id/btn6"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="6"
+            android:textSize="24sp"
+            android:layout_margin="4dp"
+            style="@style/CalculatorButton"
+            app:layout_constraintTop_toBottomOf="@id/btn3"
+            app:layout_constraintBottom_toTopOf="@id/btn9"
+            app:layout_constraintStart_toEndOf="@id/btn5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintVertical_weight="1" />
+
+        <!-- Row 3 -->
+        <Button
+            android:id="@+id/btn7"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="7"
+            android:textSize="24sp"
+            android:layout_margin="4dp"
+            style="@style/CalculatorButton"
+            app:layout_constraintTop_toBottomOf="@id/btn4"
+            app:layout_constraintBottom_toTopOf="@id/btnSettings"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btn8"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintVertical_weight="1" />
+
+        <Button
+            android:id="@+id/btn8"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="8"
+            android:textSize="24sp"
+            android:layout_margin="4dp"
+            style="@style/CalculatorButton"
+            app:layout_constraintTop_toBottomOf="@id/btn5"
+            app:layout_constraintBottom_toTopOf="@id/btn0"
+            app:layout_constraintStart_toEndOf="@id/btn7"
+            app:layout_constraintEnd_toStartOf="@id/btn9"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintVertical_weight="1" />
+
+        <Button
+            android:id="@+id/btn9"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="9"
+            android:textSize="24sp"
+            android:layout_margin="4dp"
+            style="@style/CalculatorButton"
+            app:layout_constraintTop_toBottomOf="@id/btn6"
+            app:layout_constraintBottom_toTopOf="@id/btnClear"
+            app:layout_constraintStart_toEndOf="@id/btn8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintVertical_weight="1" />
+
+        <!-- Row 4 -->
+        <Button
+            android:id="@+id/btnSettings"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="⚙"
+            android:textSize="24sp"
+            android:layout_margin="4dp"
+            style="@style/CalculatorButton"
+            app:layout_constraintTop_toBottomOf="@id/btn7"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btn0"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintVertical_weight="1" />
+
+        <Button
+            android:id="@+id/btn0"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="0"
+            android:textSize="24sp"
+            android:layout_margin="4dp"
+            style="@style/CalculatorButton"
+            app:layout_constraintTop_toBottomOf="@id/btn8"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnSettings"
+            app:layout_constraintEnd_toStartOf="@id/btnClear"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintVertical_weight="1" />
+
+        <Button
+            android:id="@+id/btnClear"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="C"
+            android:textSize="24sp"
+            android:layout_margin="4dp"
+            style="@style/CalculatorButton"
+            android:backgroundTint="@color/clear_button"
+            app:layout_constraintTop_toBottomOf="@id/btn9"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btn0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintVertical_weight="1" />
+
+        <!-- Dot button (hidden but kept for decimal functionality) -->
+        <Button
+            android:id="@+id/btnDot"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Charge Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnCharge"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:text="CHARGE"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:enabled="false"
+        android:visibility="visible"
+        android:backgroundTint="@color/charge_button_color"
+        android:textColor="@android:color/white"
+        app:cornerRadius="12dp"
+        app:elevation="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Payment Progress Overlay -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/paymentOverlay"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#E6000000"
+        android:visibility="gone"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ProgressBar
+            android:id="@+id/paymentProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <ImageView
+            android:id="@+id/nfcIcon"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_nfc"
+            android:layout_marginBottom="24dp"
+            app:layout_constraintBottom_toTopOf="@id/statusText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/statusText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tap customer's phone to begin payment"
+            android:textSize="18sp"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@id/paymentProgress"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CANCEL"
+            android:textSize="16sp"
+            android:backgroundTint="@color/error"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="32dp"
+            android:paddingHorizontal="32dp"
+            app:layout_constraintTop_toBottomOf="@id/statusText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Hidden quick amount buttons (kept for compatibility) -->
+    <Button android:id="@+id/quickAmount1" android:visibility="gone" android:layout_width="0dp" android:layout_height="0dp"/>
+    <Button android:id="@+id/quickAmount2" android:visibility="gone" android:layout_width="0dp" android:layout_height="0dp"/>
+    <Button android:id="@+id/quickAmount3" android:visibility="gone" android:layout_width="0dp" android:layout_height="0dp"/>
+    <Button android:id="@+id/quickAmount4" android:visibility="gone" android:layout_width="0dp" android:layout_height="0dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
