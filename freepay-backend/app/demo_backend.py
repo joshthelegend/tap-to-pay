@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 load_dotenv()
 
 app = FastAPI(
-    title="FreePay Demo Backend",
+    title="EazyPay Demo Backend",
     description="Demo-ready crypto tap-to-pay backend for hackathon",
     version="1.0.0"
 )
@@ -63,7 +63,7 @@ class PaymentResponse(BaseModel):
 @app.get("/")
 async def root():
     return {
-        "service": "FreePay Demo Backend",
+        "service": "EazyPay Demo Backend",
         "status": "running",
         "version": "1.0.0",
         "demo_mode": True
@@ -71,7 +71,7 @@ async def root():
 
 @app.get("/health")
 async def health_check():
-    return {"status": "healthy", "service": "FreePay Demo Backend"}
+    return {"status": "healthy", "service": "EazyPay Demo Backend"}
 
 @app.get("/customers/alice/balance")
 async def get_alice_balance():

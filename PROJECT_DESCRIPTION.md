@@ -1,8 +1,8 @@
-# 💳 FreePay: Crypto Tap-to-Pay with Instant Fiat Settlement
+# 💳 EazyPay: Crypto Tap-to-Pay with Instant Fiat Settlement
 
-## 🎯 What is FreePay?
+## 🎯 What is EazyPay?
 
-FreePay is a **revolutionary payment system** that bridges the gap between crypto and traditional payments. It enables **merchants to accept cryptocurrency payments while receiving instant USD settlement** in their bank accounts, eliminating crypto volatility and complexity.
+EazyPay is a **revolutionary payment system** that bridges the gap between crypto and traditional payments. It enables **merchants to accept cryptocurrency payments while receiving instant USD settlement** in their bank accounts, eliminating crypto volatility and complexity.
 
 ### 🌟 The Problem We Solve
 
@@ -20,7 +20,7 @@ FreePay is a **revolutionary payment system** that bridges the gap between crypt
 
 ## 🚀 Our Solution: "1inch for Payments"
 
-FreePay acts as **intelligent payment routing** that automatically finds the best way to pay:
+EazyPay acts as **intelligent payment routing** that automatically finds the best way to pay:
 
 ### 🔄 Smart Payment Routing Algorithm
 1. **Multi-Chain Balance Detection** - Scans Ethereum, Base, Polygon, Arbitrum, Optimism
@@ -213,8 +213,8 @@ const payment = await freepay.processPayment({
 
 ## 🎯 **Demo Day Pitch**
 
-> *"Merchants want to accept crypto but can't risk volatility or complexity. Customers have crypto spread across multiple wallets and chains. FreePay solves both problems with intelligent payment routing and instant fiat settlement. Watch this: $10 coffee purchase, customer taps phone, pays with Base USDC, merchant gets $10 USD in their bank account instantly. We're the 1inch for payments - making crypto spending as easy as Apple Pay."*
+> *"Merchants want to accept crypto but can't risk volatility or complexity. Customers have crypto spread across multiple wallets and chains. EazyPay solves both problems with intelligent payment routing and instant fiat settlement. Watch this: $10 coffee purchase, customer taps phone, pays with Base USDC, merchant gets $10 USD in their bank account instantly. We're the 1inch for payments - making crypto spending as easy as Apple Pay."*
 
 ---
 
-**FreePay: Making Crypto Payments Finally Ready for Mainstream Adoption** 🚀
+**EazyPay: Making Crypto Payments Finally Ready for Mainstream Adoption** 🚀
